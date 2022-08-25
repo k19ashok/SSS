@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSS JUNIOR COLLEGE</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="row col-12 align-items-center justify-content-center">
+          <img
+            class="col-auto"
+            style="border-radius: 50%; width: 150px"
+            src="{% static 'images/logo.jpg' %}"
+            alt=""
+          />
+
+          <h1
+            class="col-lg-auto col-sm-7 font-monospace fw-bold text-wrap mt10 text-center"
+          >
+            SRI SATHYA SAI JUNIOR COLLEGE FOR WOMEN
+          </h1>
+        </div>
+      </div>
+    </header>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark mt10">
+      <div class="container">
+        <a href="#" class="navbar-brand"><span><img src="{% static 'images/logo.jpg' %}" style="width: 30px;" class="rounded-circle" alt=""></span></span></a>
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-toggle="collapse"
+          data-target="#NavBar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="NavBar">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link"><span><i class="bi bi-house"></i></span> &nbsp;HOME</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'academics' %}" class="nav-link"><span><i class="bi bi-book"></i></span> &nbsp;ACADEMICS</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'infra' %}" class="nav-link"><span><i class="bi bi-building"></i></span> &nbsp;INFRA AND FACULTY</a>
+            </li>
+            <li class="nav-item active">
+              <a href="{% url 'about' %}" class="nav-link active"><span><i class="bi bi-info"></i></span> &nbsp;ABOUT</a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a href="{% url 'application' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;APPLICATION</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'userlogout' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;LOGOUT</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a href="{% url 'userlogin' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;LOGIN</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <div class="row">
+      <div class="row-content col-7 col-md-4 ">
+        <img src="{% static 'images/sathyasai.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+      </div>
+      <div class="row-content col-5 col-md-2">
+        <h4 class="blockquote-footer p-4 mt10">
+          LOVE ALL
+        </h4>
+      </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="row-content col-12">
+          <ul class="list-group">
+            <h3 class="list-group-item">MISSION AND VISION</h3>
+            <p class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae at saepe nemo sed, eaque modi a sapiente! Iste odio eveniet officia dicta, ullam debitis incidunt corrupti itaque. Dolor doloremque nam eos deserunt esse alias iure architecto rem! Temporibus sed excepturi repellat recusandae, itaque, officia ullam nostrum a, hic asperiores quo?</p>
+          </ul>
+
+          <ul class="list-group">
+            <h3 class="list-group-item">COLLEGE HISTORY</h3>
+            <li class="list-group-item">Swami inaugurated the Sri Satya Sai Arts and Science,  college for women at Anantapur and 22nd July 1968, in the Campus of the then govt girls high school. The public meeting held in this connection, was in the presence of Sri T.V Raghavulu A.P Ministor for education and Dr Suri Bhagavantham an illustrious Scientist in this country who became the director of IISC Bengaluru in the later years. 
+            </li>
+            <li class="list-group-item">During his address Swamy 0bserved “I have allowed this college to raise because it will instill in the minds of the students the ancient ideals of Satya, Dharma ,Shanthi and Prema, ideals that are delianated in the vedas, described in shastras, illustrated in epics, practised by countless generations of the men and women of this land and confirmed as best suited for individual and social progress by its saints and sages, law-givers and leaders, for centuries”.
+            </li>
+            <li class="list-group-item">Swamy constructed a beautiful Iconic building in the outskirts of the Anantapur Town, On 8th July 1971 this college was shifted to that building. The Inauguration function was attended by the then President of India Sri V.V. Giri and the then Chief Minister of A.P Sri K. Brahmananda Reddy. 
+            </li>
+            <li class="list-group-item">Four blocks of this premises  i.e, College building with beautiful elevation, auditorium, library and hostel blocks were constructed in a record time of 10 months Dr. Suri Bhagavantham expressed “The college at Anantapur is concrete example of something super human…..If you want to see divinity in action, you can find concrete evidence at Anantapur”.
+           </li>
+           <li class="list-group-item">
+            In his inaugural address Swamy observed “The seed has been planted, it will sprout and spread, heavy with fruits.” 
+           </li>
+           <li class="list-group-item">
+            At present the extent of this sprawling premises is 114 acres.
+           </li>
+           <li class="list-group-item">
+            This college was running Pre Universities courses i.e. the present Intermediate courses, Under graduation courses and Post Graduation courses. It was a Residential College with a hostel facility. 
+           </li>
+          </ul>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="row-content col-7 col-md-4 col-lg-3">
+          <img src="{% static 'images/Picture4.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <ul class="list-group">
+        <li class="list-group-item"> Sri Satya Sai Arts and Science Junior College</li>
+       <li class="list-group-item">Swamy constructed a beautiful Iconic building in the outskirts of the Anantapur Town, On 8th July 1971 this college was shifted to that building. The Inauguration function was attended by the then President of India Sri V.V. Giri and the then Chief Minister of A.P Sri K. Brahmananda Reddy. </li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="row-content col-9 col-md-7 col-lg-4">
+          <img src="{% static 'images/sssj2.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">SSS Arts and Science Junior college for women</li>
+           <li class="list-group-item">
+            Later on, for administrative reasons the Intermediate course was sought to be bifurcated. Swamy constructed this beautiful building in the Heart of the Anantapur Town, so that the local girl students could  easily commute to the college. It started functioning from 1-6-1995. This magnificent building with beautiful sculpture of goddess Saraswathi has been the alma mater for thousands of students since then. 
+            </li>
+            <li class="list-group-item">Since 1995 till September 2021, this college functioned as aided college, that means govt was paying salaries for some posts. With effect from 1-10 -2021, the aided staff was taken over by govt and since then it is functioning as private college.
+            </li>
+            <li class="list-group-item">Its area is about 4 acres. The premises is owned by Sri Satya Sai Central Trust Puttaparthi.
+            </li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="row-content col-12">
+          <h2 class="head-content">FACILITIES</h2>
+          <div class="row-content col-9 col-md-7 col-lg-4">
+            <img src="{% static 'images/Picture5.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+          </div>
+          <ul class="list-group">
+            <h4 class="list-group-item mt10">SAI SHRUTI AUDITORIUM</h4>
+            <li class="list-group-item">In the year 2017  SSS Central Trust was kind enough to erect an auditorium in the quadrangle of the college building with the cost of Rs. 35 Lakhs.
+            </li>
+            <li class="list-group-item">Earlier there was some inconvenience for the students for prayer session and other important meetings under a hot sun.
+            </li>
+            <li class="list-group-item">This auditorium proved to be a boon for the students.
+            </li>
+            <li class="list-group-item">For the inaugural function, the then Trustees of Sri Satya Sai Central Trust, Sri Vijaya Bhaskar, a former Executive Director of RBI and Sri Prasada Rao IAS Retired, graciously attended the meeting.
+            </li>
+          </ul>
+
+          <div class="row-content col-9 col-md-7 col-lg-4">
+            <img src="{% static 'images/Picture6.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+          </div>
+          <ul class="list-group">
+            <h4 class="list-group-item mt10">DRINKING WATER PLANT</h4>
+            <p class="list-group-item">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis necessitatibus dignissimos temporibus quam vitae quae cumque reprehenderit obcaecati qui rem. Asperiores, exercitationem eius omnis fugiat quidem sed nihil necessitatibus esse.
+              </p>
+          </ul>
+
+          <div class="row-content col-12">
+            <ul class="list-group">
+              <h3 class="list-group-item">FEE DETAILS</h3>
+              <li class="list-group-item">
+                The college fees has  been very minimum. At present while the A.P Govt fixed maximum Rupees of 20,000, we are collecting only 1/3rd of this maximum limit that is around Rs. 7,000. This fees structure has been attracting  students from marginalised sections of society that too from surrounding rural areas. About 70% of our students hail from socially and economically backward classes and minorities.
+
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+        <div class="col-6 col-sm-4 offset-sm-1">
+          SSS JUNIOR COLLEGE
+          <br>
+          <br>
+          Hospital Road
+          <br>
+          Judge Bungalow Compound
+          <br>
+          Aravinda nagar 
+          <br>
+          Ananthapuramu-515001
+        </div>
+  
+        <div class="col-6 col-sm-4 offset-sm-1">
+          SSS JUNIOR COLLEGE
+          <br>
+          <br>
+          Hospital Road
+          <br>
+          Judge Bungalow Compound
+          <br>
+          Aravinda nagar 
+          <br>
+          Ananthapuramu-515001
+        </div>
+      </div>
+      </footer>
+
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+
+    </body>
+    </html>
+    

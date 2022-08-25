@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSS JUNIOR COLLEGE</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="row col-12 align-items-center justify-content-center">
+          <img
+            class="col-auto"
+            style="border-radius: 50%; width: 150px"
+            src="{% static 'images/logo.jpg' %}"
+            alt=""
+          />
+
+          <h1
+            class="col-lg-auto col-sm-7 font-monospace fw-bold text-wrap mt10 text-center"
+          >
+            SRI SATHYA SAI JUNIOR COLLEGE FOR WOMEN
+          </h1>
+        </div>
+      </div>
+    </header>
+
+    
+  <nav class="navbar navbar-expand-md navbar-dark mt10">
+    <div class="container">
+      <a href="#" class="navbar-brand"><span><img src="{% static 'images/logo.jpg' %}" style="width: 30px;" class="rounded-circle" alt=""></span></span></a>
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-toggle="collapse"
+        data-target="#NavBar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="NavBar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a href="{% url 'home' %}" class="nav-link "><span><i class="bi bi-house"></i></span> &nbsp;HOME</a>
+          </li>
+          <li class="nav-item active">
+            <a href="{% url 'academics' %}" class="nav-link active"><span><i class="bi bi-book"></i></span> &nbsp;ACADEMICS</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'infra' %}" class="nav-link"><span><i class="bi bi-building"></i></span> &nbsp;INFRA AND FACULTY</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'about' %}" class="nav-link"><span><i class="bi bi-info"></i></span> &nbsp;ABOUT</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'application' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;APPLICATION</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'userlogout' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;LOGOUT</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'userlogin' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;LOGIN</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="head-content">
+          <h2 class="heading">COURSES OFFERED</h2>
+        </div>
+        <div class="row-content col-12">
+            <p> The following are the aided and un-aided courses with common subjects under part I and part II.
+              <div>
+          <div class="container-md">
+            <h5 class="mt25">LANGUAGES</h5>
+            <ol class="list-group mt25">
+              <li class="list-group-item">ENGLISH</li>
+              <li class="list-group-item">TELUGU/SANSKRIT</li>
+          </ol>
+        <p>Languages are common for all groups.</p>
+        </div>
+
+        <div>
+          <h5 class="mt25">GROUP SUBJECTS</h5>
+          <ul class="list-group mt25">
+          <li class="list-group-item"><h6 class="text-decoration-underline">MPC (BOTH EM & TM)</h6></li>
+          <ol class="list-group list-group-item">
+            <li class="list-group-item">MATHEMATICS</li>
+            <li class="list-group-item">PHISICS</li>
+            <li class="list-group-item">CHEMISTRY</li>
+        </ol>    
+        <li class="list-group-item"><h6 class="text-decoration-underline">BiPC (BOTH EM & TM)</h6></li>
+        <ol class="list-group-item list-group">
+          <li class="list-group-item">BIOLOGY</li>
+          <li class="list-group-item">PHYSICS</li>
+          <li class="list-group-item">CHEMISTRY</li>
+      </ol> 
+      <li class="list-group-item"><h6 class="text-decoration-underline">HEC (BOTH EM & TM)</h6></li>
+        <ol class="list-group-item list-group">
+          <li class="list-group-item">HISTORY</li>
+          <li class="list-group-item">ECONOMICS</li>
+          <li class="list-group-item">COMMERCE</li>
+      </ol> 
+      <li class="list-group-item"><h6 class="text-decoration-underline">CEC (BOTH EM & TM)</h6></li>
+        <ol class="list-group-item list-group">
+          <li class="list-group-item">CIVICS</li>
+          <li class="list-group-item">ECONOMICS</li>
+          <li class="list-group-item">COMMERCE</li>
+      </ol> 
+      <li class="list-group-item"><h6 class="text-decoration-underline">There is also a vocational course in Computer Science.</h6></li>
+      </ul>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="head-content">
+          <h2 class="heading">STUDENT ACTIVITIES</h2>
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture14.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture15.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture16.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture17.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 text-center">
+        <ul style="list-style: none;">
+          <li>We are proud to say that our students and also staff are front runners even in sports and games.
+          </li>
+          <li>Some of our students participated even in National Level Sports and Games
+          </li>
+        </ul>
+      </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="row-content col-10 col-md-6 col-lg-5">
+          <img src="{% static 'images/Picture18.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="image">
+        </div>
+        <div class="row-content col-12 col-md-5 col-lg-5">
+          <p>All Satya Sai Institutions will conduct a sports meet on 21st November of every year at Puttaparthi. Our students have been participating there. The parade photos of our students are appended.</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="head-content">
+          <h2 class="heading">ACHIEVEMENTS</h2>
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture21.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture22.png' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 text-center">
+          <img src="{% static 'images/Picture42.png' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 text-center">
+          Most of the district level ranks are cornered by our college every year. We are proud to say that our students even achieved state ranks.<br> In 1978 Miss Rajeswari  Patel achieved a  state rank. At present she is working as the Director of SSS Institute Higher learning Anantapur Campus.<br> 2017 our student C.Sradda Ragamali achieved a state rank . 
+      </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="head-content">
+          <h2 class="heading">CO CURRICULAR ACTIVITIES</h2>
+        </div>
+        <div class="row-content col-12 col-md-6 col-lg-3 text-center">
+          <img src="{% static 'images/Picture20.png' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-5 col-md-4 col-lg-3 text-center">
+          <img src="{% static 'images/Picture30.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-5 col-md-4 col-lg-3 text-center">
+          <img src="{% static 'images/Picture31.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 text-center">
+        <ul style="list-style: none;">
+          <h6 class="text-decoration-underline">Activities</h6>
+            <li>Swamy Bhajanas</li>
+            <li>Dance/Light and Classical</li>
+            <li>Elocution/Debate</li>
+            <li>Veda/ Stotram Chanting</li>
+            <li>Dramatics: One-Act Play</li>
+            <li>Mono-action</li>
+            </ul>
+        </ul>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="head-content"><h4 class="heading">EVENTS ORGANIZED</h4></div>
+    
+        <div class="row-content col-8 col-sm-6 col-lg-3 text-center">
+          <img src="{% static 'images/Picture34.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-7 col-sm-5 col-lg-3 text-center">
+          <img src="{% static 'images/Picture35.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 col-lg-3 text-center">
+          <img src="{% static 'images/Picture36.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 col-sm-6 col-lg-4 text-center">
+          <img src="{% static 'images/Picture33.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-8 col-sm-5 col-lg-3 text-center">
+          <img src="{% static 'images/Picture32.jpg' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-9 col-sm-6 col-lg-4 text-center">
+          <img src="{% static 'images/Picture41.png' %}" class="saiphoto-md img-thumbnail img-responsive" alt="">
+        </div>
+        <div class="row-content col-12 text-center">
+        <ul style="list-style: none;">
+          <h6 class="text-decoration-underline">Activities</h6>
+          <li>Sanskrit Diwas (Sravana poornima)</li>
+          <li>International Womens Day</li>
+          <li>Hindi Diwas</li>
+          <li>International Yoga Day</li>
+          <li>Other National Fests</li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+        <div class="col-6 col-sm-4 offset-sm-1">
+          SSS JUNIOR COLLEGE
+          <br>
+          <br>
+          Hospital Road
+          <br>
+          Judge Bungalow Compound
+          <br>
+          Aravinda nagar 
+          <br>
+          Ananthapuramu-515001
+        </div>
+  
+        <div class="col-6 col-sm-4 offset-sm-1">
+          SSS JUNIOR COLLEGE
+          <br>
+          <br>
+          Hospital Road
+          <br>
+          Judge Bungalow Compound
+          <br>
+          Aravinda nagar 
+          <br>
+          Ananthapuramu-515001
+        </div>
+      </div>
+      </footer>
+
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+
+    </body>
+    </html>
+    

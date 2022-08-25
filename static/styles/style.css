@@ -1,0 +1,87 @@
+.body
+{
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbar-dark
+{
+    background-color: #bc5da3;
+}
+
+.mt10{
+    margin-top: 10px;
+}
+
+.row-content
+{
+    margin: 0px auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+}
+
+.head-content
+{
+    margin: 0px auto;
+    padding: 20px 0px 20px 0px;
+    border-bottom: 1px ridge;
+}
+
+.mt25
+{
+    margin-top: 25px;
+}
+
+
+
+.footer
+{
+    background-color: #D1C4E9;
+    margin: 0px auto;
+    padding: 30px 0px 30px 0px;
+}
+
+.carousel-item
+{
+    max-height: 500px;
+}
+
+.saiphoto
+{
+    width: 60%;
+}
+
+.sport
+{
+    max-height: 400px;
+    overflow: hidden;
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+input:disabled::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+input:disabled:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+}
+input:disabled::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+}
+input:disabled:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+}

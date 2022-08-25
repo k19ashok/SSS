@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSS JUNIOR COLLEGE</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="row col-12 align-items-center justify-content-center">
+          <img
+            class="col-auto"
+            style="border-radius: 50%; width: 150px"
+            src="{% static 'images/logo.jpg' %}"
+            alt=""
+          />
+
+          <h1
+            class="col-lg-auto col-sm-7 font-monospace fw-bold text-wrap mt10 text-center"
+          >
+            SRI SATHYA SAI JUNIOR COLLEGE FOR WOMEN
+          </h1>
+        </div>
+      </div>
+    </header>
+
+    
+  <nav class="navbar navbar-expand-md navbar-dark mt10">
+    <div class="container">
+      <a href="#" class="navbar-brand"><span><img src="{% static 'images/logo.jpg' %}" style="width: 30px;" class="rounded-circle" alt=""></span></span></a>
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-toggle="collapse"
+        data-target="#NavBar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="NavBar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link"><span><i class="bi bi-house"></i></span> &nbsp;HOME</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'academics' %}" class="nav-link"><span><i class="bi bi-book"></i></span> &nbsp;ACADEMICS</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'infra' %}" class="nav-link"><span><i class="bi bi-building"></i></span> &nbsp;INFRA AND FACULTY</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'about' %}" class="nav-link"><span><i class="bi bi-info"></i></span> &nbsp;ABOUT</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item active">
+            <a href="{% url 'application' %}" class="nav-link active"><span><i class="bi bi-info"></i></span> &nbsp;APPLICATION</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'userlogout' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;LOGOUT</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'userlogin' %}" class="nav-link float-right"><span><i class="bi bi-info"></i></span> &nbsp;LOGIN</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <form action="{% url 'application' %}" method="post" class="row-content">
+    {% csrf_token %}
+    
+      <div class="container col-lg-9">
+      <div class="row bg-info rounded mt25  text-center">
+        <h4>APPLICATION FORM SSS ADMISSIONS-2022</h4>
+      </div>
+      
+      
+      <div class="row border border-secondary pb-4 rounded mt25">
+        <div class="form-group mt10 col-12 col-md-4 text-center">
+          <label for="paymentid" class="col-form-label fw-bold" >Payment Reference ID <span class="text-danger">*</span></label>
+            <input type="text" name="paymentID" id="Paymentid" class="form-control" placeholder="{{ data.paymentID }}" disabled>
+        </div>
+
+        <div class="form-group mt10 col-12 col-md-4 text-center">
+          <label for="hallticket" class="col-form-label fw-bold">SSC Hall Ticket <span class="text-danger">*</span></label>
+            <input type="text" name="hallticket" id="Hallticket" class="form-control" placeholder="{{ data.hallticket }}" disabled>
+        </div>
+
+        <div class="form-group mt10 col-12 col-md-4 text-center">
+          <label for="mobile" class="col-form-label fw-bold">Mobile Number <span class="text-danger">*</span></label>
+            <input type="text" name="mobile" id="Mobile" class="form-control" placeholder="{{ data.mobile }}" disabled>
+        </div>
+      </div>
+      
+      <div class="row mt25 mt-4">
+        <p class="border-bottom fw-bold"><em>Student Details</em></p>
+      </div>
+      
+      <div class="container">
+        
+        <div class="row">
+          <div class="form-group col-12 col-md-4 text-center">
+            <label for="studentname" class="col-form-label fw-bold" >Candidate's Name <span class="text-danger">*</span></label>
+              <input type="text" name="studentname" id="Studentname" class="form-control" placeholder="{{ data.studentname }}" disabled>
+          </div>
+          
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="fathername" class="col-form-label fw-bold">Father's Name <span class="text-danger">*</span></label>
+              <input type="text" name="fathername" id="Fathername" class="form-control">
+          </div>
+  
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="mothername" class="col-form-label fw-bold">Mother's Name <span class="text-danger">*</span></label>
+              <input type="text" name="mothername" id="Mothername" class="form-control">
+          </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-12 col-md-4 text-center">
+              <label for="dob" class="col-form-label fw-bold" >Date of Birth <span class="text-danger">*</span></label>
+                <input type="date" name="dob" id="DOB" class="form-control" value="{{ data.dob }}" disabled>
+            </div>
+    
+            <div class="form-group mt10 col-12 col-md-4 text-center">
+              <label for="aadhar" class="col-form-label fw-bold">Aadhar Number <span class="text-danger">*</span></label>
+                <input type="text" name="aadhar" id="Aadhar" class="form-control">
+            </div>
+    
+            <div class="form-group mt10 col-12 col-md-4 text-center">
+              <label for="ration" class="col-form-label fw-bold">Ration Card Number <span class="text-danger">*</span></label>
+                <input type="text" name="ration" id="Ration" class="form-control">
+            </div>
+          </div>
+
+            <div class="row">
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="birthstate" class="col-form-label fw-bold" >Birth State <span class="text-danger">*</span></label>
+                  <input type="text" name="birthstate" id="Birthstate" class="form-control">
+              </div>
+      
+              <div class="form-group mt10 col-12 col-md-4 text-center">
+                <label for="birthdistrict" class="col-form-label fw-bold">Birth District <span class="text-danger">*</span></label>
+                  <input type="text" name="birthdistrict" id="District" class="form-control">
+              </div>
+      
+              <div class="form-group mt10 col-12 col-md-4 text-center">
+                <label for="gender" class="col-form-label fw-bold">Gender <span class="text-danger">*</span></label>
+                  <input type="text" name="gender" id="Gender" class="form-control">
+              </div>
+              </div>
+        
+      </div>
+
+
+      <div class="container">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>Category Details</em></p>
+        </div>
+        
+        <div class="container">
+          
+          <div class="row">
+            <div class="form-group col-12 col-md-4">
+              <label for="cat" class="col-form-label fw-bold" >Category <span class="text-danger">*</span></label>
+              <div>
+              <select name="cat" id="cat" class="form-control">
+                <option value="OC">OC</option>
+                <option value="BC-A">BC-A</option>
+                <option value="BC-B">BC-B</option>
+                <option value="BC-C">BC-C</option>
+                <option value="BC-D">BC-D</option>
+                <option value="BC-E">BC-E</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+              </select>
+            </div>
+          </div>
+            
+            <div class="form-group mt10 col-12 col-md-8 text-center">
+              <label for="ews" class="col-form-label fw-bold" >Do you belong to EWS??? <span class="text-danger">*</span></label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ews" value="yes">
+                <label class="form-check-label" for="ews">YES</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="ews" value="no">
+                <label class="form-check-label" for="ews">NO</label>
+              </div>
+            </div>
+    
+            <div class="form-group mt10 col-12 col-md-4 text-center">
+              <label for="castecert" class="col-form-label fw-bold">Caste Certificate Number </label>
+                <input type="text" name="castecert" id="Castecert" class="form-control">
+            </div>
+
+            <div class="form-group mt10 col-12 col-md-4 offset-md-2 text-center">
+              <label for="ewscert" class="col-form-label fw-bold">EWS Certificate Number </label>
+                <input type="text" name="ewscert" id="EWScert" class="form-control">
+            </div>
+
+            <div class="form-group mt10 col-12 col-md-8">
+              <label for="minority" class="col-form-label fw-bold" >Whether Minority? <span class="text-danger">*</span></label>
+              <div class="form-check form-check-inline offset-1">
+                <input class="form-check-input" type="radio" name="minority" value="yes">
+                <label class="form-check-label" for="minority">YES</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="minority" value="no">
+                <label class="form-check-label" for="minority">NO</label>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+
+      </div>
+      <div class="container">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>Income Details</em></p>
+        </div>
+        
+        <div class="container">
+
+          <div class="row">
+            <div class="form-group mt10">
+              <label for="income" class="col-form-label fw-bold" >Family Income(Rupees) <span class="text-danger">*</span></label>
+              <div class="form-check form-check-inline offset-1">
+                <input class="form-check-input" type="radio" name="income" value="1L">
+                <label class="form-check-label" for="income">Below 1 Lakh</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="income" value="1L-2L">
+                <label class="form-check-label" for="income">1 Lakh to 2 Lakhs</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="income" value="2L+">
+                <label class="form-check-label" for="income">Above 2 Lakhs</label>
+              </div>
+            </div>
+
+            <div class="form-group mt10 col-12 col-md-4 text-center">
+              <label for="incomecert" class="col-form-label fw-bold">Income Certificate Number </label>
+                <input type="text" name="incomecert" id="Incomecert" class="form-control">
+            </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>Bank A/c Details</em></p>
+        </div>
+
+            <div class="row">
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="bankac" class="col-form-label fw-bold" >Bank Account Number <span class="text-danger">*</span></label>
+                  <input type="text" name="bankac" id="Bankac" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="bankac" class="col-form-label fw-bold">Account Number <span class="text-danger">*</span></label>
+                  <input type="text" name="bankac" id="Acc" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="ifsc" class="col-form-label fw-bold">IFSC Code<span class="text-danger">*</span></label>
+                  <input type="text" name="ifsc" id="IFSC" class="form-control">
+              </div>
+            </div>
+      
+      </div>
+
+
+      <div class="container">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>Address</em></p>
+        </div>
+
+            <div class="row">
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="hscno" class="col-form-label fw-bold" >House No. <span class="text-danger">*</span></label>
+                  <input type="text" name="hscno" id="Hscno" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="village" class="col-form-label fw-bold">Village/Locality <span class="text-danger">*</span></label>
+                  <input type="text" name="village" id="Village" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="town" class="col-form-label fw-bold">Town/City<span class="text-danger">*</span></label>
+                  <input type="text" name="town" id="Town" class="form-control">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="birthdistrict" class="col-form-label fw-bold" >District <span class="text-danger">*</span></label>
+                  <input type="text" name="birthdistrict" id="Bankac" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="birthstate" class="col-form-label fw-bold">State <span class="text-danger">*</span></label>
+                  <input type="text" name="birthstate" id="Acc" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="pincode" class="col-form-label fw-bold">Pincode<span class="text-danger">*</span></label>
+                  <input type="text" name="pincode" id="IFSC" class="form-control">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="mobile" class="col-form-label fw-bold" >Mobile <span class="text-danger">*</span></label>
+                  <input type="text" name="mobile" id="Bankac" class="form-control" placeholder="{{ data.mobile }}" disabled>
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="altmobile" class="col-form-label fw-bold">Alternate Mobile</label>
+                  <input type="text" name="altmobile" id="Acc" class="form-control">
+              </div>
+      
+              <div class="form-group col-12 col-md-4 text-center">
+                <label for="email" class="col-form-label fw-bold">Email<span class="text-danger">*</span></label>
+                  <input type="email" name="ifsc" id="IFSC" class="form-control" value="{{ data.email }}" disabled>
+              </div>
+            </div>
+      
+      </div>
+
+
+
+      <div class="container">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>SSC</em></p>
+        </div>
+
+        <div class="row">
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="hallticket" class="col-form-label fw-bold">SSC Hall Ticket <span class="text-danger">*</span></label>
+              <input type="text" name="hallticket" id="Hallticket" class="form-control" value="{{ data.hallticket }}" disabled>
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="yop" class="col-form-label fw-bold">Year of Passing <span class="text-danger">*</span></label>
+              <input type="text" name="yop" id="YOP" class="form-control">
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="medium" class="col-form-label fw-bold">Medium Of Instruction <span class="text-danger">*</span></label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="medium" value="English">
+              <label class="form-check-label" for="medium">English</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="medium" value="Telugu">
+              <label class="form-check-label" for="minority">Telugu</label>
+            </div>          
+          </div>
+        
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="school" class="col-form-label fw-bold">School <span class="text-danger">*</span></label>
+              <input type="text" name="school" id="School" class="form-control">
+          </div>
+
+          <div class="form-group mt10 col-12 col-md-4 text-center align-self-center">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="place" value="rural">
+              <label class="form-check-label" for="place">Rural</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="place" value="urban">
+              <label class="form-check-label" for="place">Urban</label>
+            </div>          
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="container">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>Place of Study</em></p>
+        </div>
+
+        <div class="row">
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="cls6" class="col-form-label fw-bold">Class 6 <span class="text-danger">*</span></label>
+              <input type="text" name="cls6" id="School" class="form-control">
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="cls7" class="col-form-label fw-bold">Class 7 <span class="text-danger">*</span></label>
+              <input type="text" name="cls7" id="School" class="form-control">
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="cls8" class="col-form-label fw-bold">Class 8 <span class="text-danger">*</span></label>
+              <input type="text" name="cls8" id="School" class="form-control">
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="cls9" class="col-form-label fw-bold">Class 9 <span class="text-danger">*</span></label>
+              <input type="text" name="cls9" id="School" class="form-control">
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="school" class="col-form-label fw-bold">Class 10 <span class="text-danger">*</span></label>
+              <input type="text" name="cls10" id="School" class="form-control">
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="container mb-4">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>PREFERENCES</em></p>
+        </div>
+
+        <div class="row">
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="pref1" class="col-form-label fw-bold">PREFERENCE 1 <span class="text-danger">*</span></label>
+              <input type="text" name="pref1" id="School" class="form-control" required>
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="pref2" class="col-form-label fw-bold">PREFERENCE 2 <span class="text-danger">*</span></label>
+              <input type="text" name="pref2" id="School" class="form-control" required>
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="pref3" class="col-form-label fw-bold">PREFERENCE 3 <span class="text-danger">*</span></label>
+              <input type="text" name="pref3" id="School" class="form-control" required>
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="pref4" class="col-form-label fw-bold">PREFERENCE 4 <span class="text-danger">*</span></label>
+              <input type="text" name="pref4" id="School" class="form-control" required>
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="pref5" class="col-form-label fw-bold">PREFERENCE 5 <span class="text-danger">*</span></label>
+              <input type="text" name="pref5" id="School" class="form-control" required>
+          </div>
+          <div class="form-group mt10 col-12 col-md-4 text-center">
+            <label for="pref6" class="col-form-label fw-bold">PREFERENCE 6 <span class="text-danger">*</span></label>
+              <input type="text" name="pref6" id="School" class="form-control" required>
+          </div>
+
+        </div>
+      </div>
+      <div class="container mb-4">
+
+        <div class="row mt25 mt-4">
+          <p class="border-bottom fw-bold"><em>Photo & Signature</em></p>
+        </div>
+        
+        <div class="row">
+          <div class="form-group mt10 col-12 col-md-6 text-center">
+            <label for="photo" class="col-form-label fw-bold">Photo<span class="text-danger">*</span></label>
+              <input type="file" name="photo" id="School" class="form-control" required>
+          </div>
+          <div class="form-group mt10 col-12 col-md-6 text-center">
+            <label for="sign" class="col-form-label fw-bold">Signature<span class="text-danger">*</span></label>
+              <input type="file" name="sign" id="School" class="form-control" required>
+          </div>
+        </div>
+    </div>
+
+    <div class="container mb-4">
+
+      <div class="row mt25 mt-4">
+        <p class="border-bottom fw-bold"><em>Declaration</em></p>
+      </div>
+      
+      <div class="row form-check">
+        <div class="form-group mt10 col-12 text-center ">
+            <input type="checkbox" name="school" id="School" class="form-check-input">
+            <label for="school" class="form-check-label">I have read all the details and I declare that they are correct</label>
+        </div>
+        <div class="mt25 text-center">
+          <button type="button" class="btn btn-success col-3">SAVE</button>
+          <button type="submit" class="btn btn-success col-3">SUBMIT</button>
+        </div>
+      </div>
+  </div>
+
+    
+      </div>
+  </div>
+  </form>
+
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+        <div class="col-6 col-sm-4 offset-sm-1">
+          SSS JUNIOR COLLEGE
+          <br>
+          <br>
+          Hospital Road
+          <br>
+          Judge Bungalow Compound
+          <br>
+          Aravinda nagar 
+          <br>
+          Ananthapuramu-515001
+        </div>
+  
+        <div class="col-6 col-sm-4 offset-sm-1">
+          SSS JUNIOR COLLEGE
+          <br>
+          <br>
+          Hospital Road
+          <br>
+          Judge Bungalow Compound
+          <br>
+          Aravinda nagar 
+          <br>
+          Ananthapuramu-515001
+        </div>
+      </div>
+      </footer>
+
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+
+    </body>
+    </html>
+    
